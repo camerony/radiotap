@@ -180,6 +180,11 @@ struct ieee80211_radiotap_header {
  *     Contains a bitmap of known fields/flags, the flags, and
  *     the MCS index.
  *
+ * IEEE80211_RADIOTAP_AMPDU		u8		unitless
+ *
+ *     If present, frame was part of an aMPDU, if the highest
+ *     bit of the u8 is set the lowest 6 bits of it contain
+ *     the index of this frame in the aMPDU.
  */
 enum ieee80211_radiotap_type {
 	IEEE80211_RADIOTAP_TSFT = 0,
@@ -202,6 +207,7 @@ enum ieee80211_radiotap_type {
 	IEEE80211_RADIOTAP_DATA_RETRIES = 17,
 
 	IEEE80211_RADIOTAP_MCS = 19,
+	IEEE80211_RADIOTAP_AMPDU = 20,
 
 	/* valid in every it_present bitmap, even vendor namespaces */
 	IEEE80211_RADIOTAP_RADIOTAP_NAMESPACE = 29,
@@ -265,5 +271,8 @@ enum ieee80211_radiotap_type {
 #define IEEE80211_RADIOTAP_MCS_SGI		0x04
 #define IEEE80211_RADIOTAP_MCS_FMT_GF		0x08
 #define IEEE80211_RADIOTAP_MCS_FEC_LDPC		0x10
+
+#define IEEE80211_RADIOTAP_AMPDU_IDX_VALID	0x80
+#define IEEE80211_RADIOTAP_AMPDU_IDX_MASK	0x3f
 
 #endif				/* IEEE80211_RADIOTAP_H */

@@ -38,6 +38,7 @@ static const struct radiotap_align_size rtap_namespace_sizes[] = {
 	[IEEE80211_RADIOTAP_RTS_RETRIES] = { .align = 1, .size = 1, },
 	[IEEE80211_RADIOTAP_DATA_RETRIES] = { .align = 1, .size = 1, },
 	[IEEE80211_RADIOTAP_MCS] = { .align = 1, .size = 3, },
+	[IEEE80211_RADIOTAP_AMPDU] = { .align = 1, .size = 1, },
 	/*
 	 * add more here as they are defined in radiotap.h
 	 */
